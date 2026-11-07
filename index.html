@@ -1,205 +1,391 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Baby Lissa</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; transition: all 0.3s ease; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #FFF0F2;
-            color: #111111;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 420px;
-            background: #FFFFFF;
-            padding: 35px 25px;
-            border-radius: 24px;
-            border: 2px solid #111111;
-            box-shadow: 6px 6px 0px #FFB3C1;
-        }
-        h1 { 
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #111111;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        p { font-size: 0.95rem; color: #444444; line-height: 1.6; }
-        .action-btn {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111111;
-            color: #FFFFFF;
-            border: none;
-            padding: 14px 32px;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            display: inline-block;
-        }
-        .action-btn:hover { background-color: #FF4D6D; transform: translateY(-2px); }
-        input {
-            font-family: 'Poppins', sans-serif;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 12px;
-            border: 2px solid #111111;
-            text-align: center;
-            width: 100%;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-        }
-        .hidden { display: none !important; }
-        .icon-grid { display: flex; justify-content: space-between; margin-top: 30px; gap: 12px; }
-        .icon-item { flex: 1; cursor: pointer; }
-        .icon-box {
-            font-size: 32px;
-            background: #FFF0F2;
-            border: 2px solid #111111;
-            padding: 15px 0;
-            border-radius: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .icon-item:hover .icon-box { background: #FFB3C1; transform: scale(1.05); }
-        .icon-label { font-size: 12px; margin-top: 8px; font-weight: 500; color: #111111; text-transform: uppercase; }
-        .content-section { margin-top: 30px; padding: 20px; background: #FFF0F2; border: 2px solid #111111; border-radius: 18px; text-align: left; }
-        .content-section h3 { font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.4rem; color: #111111; border-bottom: 1px solid #111111; padding-bottom: 8px; }
-        .gallery { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; max-height: 400px; overflow-y: auto; }
-        .gallery img { width: 100%; border-radius: 12px; border: 1.5px solid #111111; }
-        .message-text { font-style: italic; white-space: pre-line; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Babyy ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #ffe0ec, #fff5f8);
+  color: #a83260;
+  text-align: center;
+  min-height: 100vh;
+  padding: 25px 15px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 35px auto;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px #d77b9b33;
+}
+
+h1, h2 {
+  color: #d6336c;
+}
+
+button {
+  background: #e94d87;
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+button:hover {
+  background: #c92d69;
+}
+
+.hidden {
+  display: none;
+}
+
+#gameCanvas {
+  width: 100%;
+  max-width: 500px;
+  background: #fff0f5;
+  border: 2px solid #f3a1bd;
+  border-radius: 12px;
+  touch-action: manipulation;
+}
+
+input {
+  padding: 13px;
+  border: 2px solid pink;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+  width: 190px;
+  letter-spacing: 5px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.icon-button {
+  background: #fff0f5;
+  color: #d6336c;
+  border: 2px solid #ffc0d5;
+  padding: 20px 10px;
+  border-radius: 18px;
+  width: 100%;
+  font-size: 28px;
+}
+
+.icon-button span {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+#message {
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- SCREEN 1: WELCOME SCREEN -->
-    <div id="screen1" class="container">
-        <h1>Hello my Babyy lissa 🖤</h1>
-        <p>Happy Monthsary! I made a tiny digital world just for us. Tap below to begin.</p>
-        <button class="action-btn" onclick="goToScreen2()">click me</button>
+<!-- FIRST PAGE -->
+<section class="container" id="welcome">
+  <h1>Hello, my lovee! ❤️</h1>
+  <p>I have a little surprise for you, Babyy.</p>
+  <p>Are you ready?</p>
+  <button onclick="startGame()">Click Me 💗</button>
+</section>
+
+<!-- HEART GAME -->
+<section class="container hidden" id="game">
+  <h2>❤️ Heart Runner ❤️</h2>
+  <p>Jump over the obstacles, my love!</p>
+  <p>Reach 0100 to unlock your surprise.</p>
+
+  <h2 id="score">0000 / 0100</h2>
+
+  <canvas id="gameCanvas"
+          width="500" height="200"></canvas>
+
+  <p>Press SPACE, ↑, or tap the game to jump!</p>
+  <p id="gameStatus">Your game is ready!</p>
+
+  <button id="restartBtn" class="hidden"
+          onclick="restartGame()">Try Again</button>
+</section>
+
+<!-- SECRET CODE -->
+<section class="container hidden" id="password">
+  <h2>One last thing, my Babyy! 💌</h2>
+  <p>Enter our secret 8-digit code.</p>
+
+  <input type="password" id="secret"
+         maxlength="8" inputmode="numeric"
+         placeholder="••••••••">
+
+  <br><br>
+
+  <button onclick="unlock()">Unlock ❤️</button>
+
+  <p id="error"></p>
+</section>
+
+<!-- SURPRISE MENU -->
+<section class="container hidden" id="surprise">
+  <h1>Welcome, my Babyy! 💗</h1>
+  <p>You unlocked my little world!</p>
+
+  <div class="gallery">
+    <button class="icon-button" onclick="showMusic()">
+      🎵 <span>Our Music</span>
+    </button>
+
+    <button class="icon-button" onclick="showPhotos()">
+      📸 <span>Our 10 Photos</span>
+    </button>
+
+    <button class="icon-button" onclick="showMessage()">
+      💌 <span>Sweet Message</span>
+    </button>
+  </div>
+
+  <div id="music" class="hidden">
+    <h2>Our Song 🎵</h2>
+    <p>A song that reminds me of you.</p>
+    <audio controls style="width:100%">
+      <source src="song.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+  </div>
+
+  <div id="photos" class="hidden">
+    <h2>Our Memories 📸</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="Memory 1">
+      <img src="photo2.jpg" alt="Memory 2">
+      <img src="photo3.jpg" alt="Memory 3">
+      <img src="photo4.jpg" alt="Memory 4">
+      <img src="photo5.jpg" alt="Memory 5">
+      <img src="photo6.jpg" alt="Memory 6">
+      <img src="photo7.jpg" alt="Memory 7">
+      <img src="photo8.jpg" alt="Memory 8">
+      <img src="photo9.jpg" alt="Memory 9">
+      <img src="photo10.jpg" alt="Memory 10">
     </div>
+  </div>
 
-    <!-- SCREEN 2: PASSWORD SCREEN -->
-    <div id="screen2" class="container hidden">
-        <h1>Secret Code</h1>
-        <p>To enter our space, please insert our special 8-character password:</p>
-        <input type="password" id="passwordInput" placeholder="••••••••" maxlength="8">
-        <button class="action-btn" onclick="checkPassword()">Unlock</button>
-        <p id="errorMsg" style="color: #FF4D6D; font-weight: 500; margin-top: 15px; font-size: 14px;"></p>
-    </div>
+  <div id="letter" class="hidden">
+    <h2>To My Babyy ❤️</h2>
+    <p id="message">
+      Happy Monthsary, my lovee!
 
-    <!-- SCREEN 3: DASHBOARD WITH 3 ICONS -->
-    <div id="screen3" class="container hidden">
-        <h1>For You ✨</h1>
-        <p>Every little piece here belongs to you. Tap an icon to open it up:</p>
-        
-        <div class="icon-grid">
-            <div class="icon-item" onclick="showTab('music')">
-                <div class="icon-box">🎵</div>
-                <div class="icon-label">Music</div>
-            </div>
-            <div class="icon-item" onclick="showTab('photos')">
-                <div class="icon-box">📸</div>
-                <div class="icon-label">Photos</div>
-            </div>
-            <div class="icon-item" onclick="showTab('message')">
-                <div class="icon-box">✍️</div>
-                <div class="icon-label">Letter</div>
-            </div>
-        </div>
+      Thank you for being part of my life.
+      You make my ordinary days special.
+      I hope we continue making beautiful
+      memories together.
 
-        <!-- Dynamic Windows -->
-        <div id="musicTab" class="content-section hidden">
-            <h3>Our Sound 🎧</h3>
-            <p>Press play to listen to our special song:</p>
-            <audio id="audioPlayer" controls style="width:100%; margin-top: 10px;">
-                <source id="audioSource" src="" type="audio/mpeg">
-            </audio>
-        </div>
+      I love you so much, Babyy! ❤️
+    </p>
+  </div>
+</section>
 
-        <div id="photosTab" class="content-section hidden">
-            <h3>Our Timeline 🎞️</h3>
-            <p>10 special moments captured in time:</p>
-            <div class="gallery" id="photoGallery"></div>
-        </div>
+<script>
 
-        <div id="messageTab" class="content-section hidden">
-            <h3>To My Babyy Lissa ✍️</h3>
-            <p class="message-text" id="loveLetterText"></p>
-        </div>
-    </div>
+// PAGE NAVIGATION
+function hideAll() {
+  ["welcome", "game", "password", "surprise"]
+    .forEach(id => document.getElementById(id)
+    .classList.add("hidden"));
+}
 
-    <script>
-        // --- CUSTOMIZATION CONFIGURATION ---
-        const SECRET_CODE = "04092026"; 
-        const MUSIC_URL = "https://soundhelix.com";
-        const MY_MESSAGE = "Happy Monthsary, my beautiful baby Lissa! 🖤\n\nThank you for bringing so much happiness, comfort, and color into my life. Every single day with you is a blessing, and I cannot wait to create infinitely more memories by your side.\n\nI love you more than words can say. Forever and always.";
-        const MY_PHOTOS = [
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos",
-            "https://picsum.photos0"
-        ];
+function startGame() {
+  hideAll();
+  document.getElementById("game").classList.remove("hidden");
+  restartGame();
+}
 
-        // --- CORE APPLICATION LOGIC ---
-        document.getElementById('audioSource').src = MUSIC_URL;
-        document.getElementById('audioPlayer').load();
-        document.getElementById('loveLetterText').innerText = MY_MESSAGE;
-        
-        const galleryDiv = document.getElementById('photoGallery');
-        MY_PHOTOS.forEach((photoUrl, index) => {
-            if(photoUrl.trim() !== "") {
-                let img = document.createElement('img');
-                img.src = photoUrl;
-                img.alt = "Memory " + (index + 1);
-                galleryDiv.appendChild(img);
-            }
-        });
+// HEART RUNNER GAME
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
-        function goToScreen2() {
-            document.getElementById('screen1').classList.add('hidden');
-            document.getElementById('screen2').classList.remove('hidden');
-        }
+let heart = { x: 55, y: 145, vy: 0 };
+let obstacles = [];
+let score = 0;
+let running = false;
+let lastTime = 0;
+let obstacleTimer = 0;
 
-        function checkPassword() {
-            const inputVal = document.getElementById('passwordInput').value;
-            if (inputVal === SECRET_CODE) {
-                document.getElementById('screen2').classList.add('hidden');
-                document.getElementById('screen3').classList.remove('hidden');
-            } else {
-                document.getElementById('errorMsg').innerText = "That's not our code, love. Try again! 👀";
-            }
-        }
+const ground = 165;
 
-        function showTab(tabName) {
-            document.getElementById('musicTab').classList.add('hidden');
-            document.getElementById('photosTab').classList.add('hidden');
-            document.getElementById('messageTab').classList.add('hidden');
-            document.getElementById(tabName + 'Tab').classList.remove('hidden');
-        }
-    </script>
+function jump() {
+  if (running && heart.y >= 144) {
+    heart.vy = -390;
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.code === "Space" || e.code === "ArrowUp") {
+    if (!document.getElementById("game").classList.contains("hidden")) {
+      e.preventDefault();
+      jump();
+    }
+  }
+});
+
+canvas.addEventListener("pointerdown", jump);
+
+function restartGame() {
+  heart = { x: 55, y: 145, vy: 0 };
+  obstacles = [];
+  score = 0;
+  obstacleTimer = 0;
+  lastTime = 0;
+  running = true;
+
+  document.getElementById("score").textContent = "0000 / 0100";
+  document.getElementById("gameStatus").textContent = "Good luck, my love!";
+  document.getElementById("restartBtn").classList.add("hidden");
+
+  requestAnimationFrame(gameLoop);
+}
+
+function gameLoop(time) {
+  if (!running) return;
+
+  const dt = Math.min((time - (lastTime || time)) / 1000, 0.04);
+  lastTime = time;
+
+  score += dt * 3.4;
+
+  heart.vy += 1050 * dt;
+  heart.y += heart.vy * dt;
+
+  if (heart.y > 145) {
+    heart.y = 145;
+    heart.vy = 0;
+  }
+
+  obstacleTimer += dt;
+
+  if (obstacleTimer > 1.15) {
+    obstacles.push({ x: 510 });
+    obstacleTimer = 0;
+  }
+
+  obstacles.forEach(ob => ob.x -= 230 * dt);
+  obstacles = obstacles.filter(ob => ob.x > -30);
+
+  // Draw the game
+  ctx.clearRect(0, 0, 500, 200);
+
+  ctx.strokeStyle = "#e99ab5";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(0, ground + 18);
+  ctx.lineTo(500, ground + 18);
+  ctx.stroke();
+
+  ctx.font = "32px Arial";
+  ctx.fillText("❤️", heart.x, heart.y + 25);
+
+  obstacles.forEach(ob => {
+    ctx.font = "30px Arial";
+    ctx.fillText("🌵", ob.x, ground + 15);
+
+    if (
+      ob.x < heart.x + 27 &&
+      ob.x + 25 > heart.x &&
+      heart.y > 112
+    ) {
+      endGame();
+    }
+  });
+
+  document.getElementById("score").textContent =
+    String(Math.floor(score)).padStart(4, "0") + " / 0100";
+
+  if (score >= 100) {
+    running = false;
+    document.getElementById("gameStatus").textContent =
+      "You complete the game my Babyy ❤️";
+
+    setTimeout(() => {
+      hideAll();
+      document.getElementById("password").classList.remove("hidden");
+    }, 1800);
+
+    return;
+  }
+
+  if (running) requestAnimationFrame(gameLoop);
+}
+
+function endGame() {
+  running = false;
+  document.getElementById("gameStatus").textContent =
+    "Oops! Try again, my love! ❤️";
+  document.getElementById("restartBtn").classList.remove("hidden");
+}
+
+// SECRET PASSWORD
+function unlock() {
+  const code = document.getElementById("secret").value;
+
+  if (code === "04092026") {
+    hideAll();
+    document.getElementById("surprise").classList.remove("hidden");
+  } else {
+    document.getElementById("error").textContent =
+      "Wrong code, Babyy! Try again. 💗";
+  }
+}
+
+// THREE SURPRISE ICONS
+function showMusic() {
+  hideSections();
+  document.getElementById("music").classList.remove("hidden");
+}
+
+function showPhotos() {
+  hideSections();
+  document.getElementById("photos").classList.remove("hidden");
+}
+
+function showMessage() {
+  hideSections();
+  document.getElementById("letter").classList.remove("hidden");
+}
+
+function hideSections() {
+  ["music", "photos", "letter"].forEach(id =>
+    document.getElementById(id).classList.add("hidden")
+  );
+}
+
+</script>
 </body>
 </html>

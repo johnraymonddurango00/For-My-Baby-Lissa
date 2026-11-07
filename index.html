@@ -28,7 +28,6 @@
             border-radius: 24px;
             border: 2px solid #111111;
             box-shadow: 6px 6px 0px #FFB3C1;
-            animation: fadeIn 0.6s ease-out;
         }
         h1 { 
             font-family: 'Playfair Display', serif;
@@ -39,7 +38,7 @@
             font-weight: 600;
         }
         p { font-size: 0.95rem; color: #444444; line-height: 1.6; }
-        button {
+        .action-btn {
             font-family: 'Poppins', sans-serif;
             background-color: #111111;
             color: #FFFFFF;
@@ -51,9 +50,9 @@
             border-radius: 50px;
             cursor: pointer;
             margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: inline-block;
         }
-        button:hover { background-color: #FF4D6D; transform: translateY(-2px); }
+        .action-btn:hover { background-color: #FF4D6D; transform: translateY(-2px); }
         input {
             font-family: 'Poppins', sans-serif;
             padding: 12px;
@@ -66,9 +65,7 @@
             margin-bottom: 5px;
             letter-spacing: 2px;
         }
-        input:focus { outline: none; border-color: #FF4D6D; background-color: #FFF0F2; }
         .hidden { display: none !important; }
-        
         .icon-grid { display: flex; justify-content: space-between; margin-top: 30px; gap: 12px; }
         .icon-item { flex: 1; cursor: pointer; }
         .icon-box {
@@ -82,29 +79,12 @@
             align-items: center;
         }
         .icon-item:hover .icon-box { background: #FFB3C1; transform: scale(1.05); }
-        .icon-label { 
-            font-size: 12px; margin-top: 8px; font-weight: 500; color: #111111; 
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        
-        .content-section {
-            margin-top: 30px; padding: 20px; background: #FFF0F2;
-            border: 2px solid #111111; border-radius: 18px; text-align: left;
-            animation: slideUp 0.4s ease;
-        }
-        .content-section h3 {
-            font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.4rem;
-            color: #111111; border-bottom: 1px solid #111111; padding-bottom: 8px;
-        }
-        .gallery {
-            display: flex; flex-direction: column; gap: 15px; margin-top: 15px;
-            max-height: 400px; overflow-y: auto; padding-right: 5px;
-        }
+        .icon-label { font-size: 12px; margin-top: 8px; font-weight: 500; color: #111111; text-transform: uppercase; }
+        .content-section { margin-top: 30px; padding: 20px; background: #FFF0F2; border: 2px solid #111111; border-radius: 18px; text-align: left; }
+        .content-section h3 { font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.4rem; color: #111111; border-bottom: 1px solid #111111; padding-bottom: 8px; }
+        .gallery { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; max-height: 400px; overflow-y: auto; }
         .gallery img { width: 100%; border-radius: 12px; border: 1.5px solid #111111; }
         .message-text { font-style: italic; white-space: pre-line; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -113,7 +93,7 @@
     <div id="screen1" class="container">
         <h1>Hello my Babyy lissa 🖤</h1>
         <p>Happy Monthsary! I made a tiny digital world just for us. Tap below to begin.</p>
-        <button onclick="goToScreen2()">click me</button>
+        <button class="action-btn" onclick="goToScreen2()">click me</button>
     </div>
 
     <!-- SCREEN 2: PASSWORD SCREEN -->
@@ -121,7 +101,7 @@
         <h1>Secret Code</h1>
         <p>To enter our space, please insert our special 8-character password:</p>
         <input type="password" id="passwordInput" placeholder="••••••••" maxlength="8">
-        <button onclick="checkPassword()">Unlock</button>
+        <button class="action-btn" onclick="checkPassword()">Unlock</button>
         <p id="errorMsg" style="color: #FF4D6D; font-weight: 500; margin-top: 15px; font-size: 14px;"></p>
     </div>
 
@@ -151,16 +131,13 @@
             <p>Press play to listen to our special song:</p>
             <audio id="audioPlayer" controls style="width:100%; margin-top: 10px;">
                 <source id="audioSource" src="" type="audio/mpeg">
-                Your browser does not support the audio element.
             </audio>
         </div>
 
         <div id="photosTab" class="content-section hidden">
             <h3>Our Timeline 🎞️</h3>
             <p>10 special moments captured in time:</p>
-            <div class="gallery" id="photoGallery">
-                <!-- Pictures will load automatically from your config below -->
-            </div>
+            <div class="gallery" id="photoGallery"></div>
         </div>
 
         <div id="messageTab" class="content-section hidden">
@@ -170,24 +147,10 @@
     </div>
 
     <script>
-        /*****************************************************************
-         *  ✍️ EASY PHONE CUSTOMIZATION SECTION
-         *  Change the items inside the double quotes "" below to your own values!
-         *****************************************************************/
-        
-        // 1. YOUR 8-CHARACTER PASSWORD (Change this to whatever you want)
+        // --- CUSTOMIZATION CONFIGURATION ---
         const SECRET_CODE = "04092026"; 
-
-        // 2. YOUR MUSIC LINK 
-        // (Paste a direct link to an .mp3 audio file or music URL inside the quotes)
         const MUSIC_URL = "https://soundhelix.com";
-
-        // 3. YOUR SWEET LETTER
-        // (Type or paste your entire heartfelt monthsary message inside the quotes)
         const MY_MESSAGE = "Happy Monthsary, my beautiful baby Lissa! 🖤\n\nThank you for bringing so much happiness, comfort, and color into my life. Every single day with you is a blessing, and I cannot wait to create infinitely more memories by your side.\n\nI love you more than words can say. Forever and always.";
-
-        // 4. YOUR 10 PICTURE LINKS
-        // (Paste your 10 direct image URLs inside these quotes. Right now they are pretty placeholders!)
         const MY_PHOTOS = [
             "https://picsum.photos",
             "https://picsum.photos",
@@ -201,12 +164,11 @@
             "https://picsum.photos0"
         ];
 
-        /*****************************************************************
-         *  DO NOT TOUCH THE CODE BELOW - IT MAKES EVERYTHING RUN!
-         *****************************************************************/
+        // --- CORE APPLICATION LOGIC ---
         document.getElementById('audioSource').src = MUSIC_URL;
         document.getElementById('audioPlayer').load();
         document.getElementById('loveLetterText').innerText = MY_MESSAGE;
+        
         const galleryDiv = document.getElementById('photoGallery');
         MY_PHOTOS.forEach((photoUrl, index) => {
             if(photoUrl.trim() !== "") {
@@ -216,10 +178,12 @@
                 galleryDiv.appendChild(img);
             }
         });
+
         function goToScreen2() {
             document.getElementById('screen1').classList.add('hidden');
             document.getElementById('screen2').classList.remove('hidden');
         }
+
         function checkPassword() {
             const inputVal = document.getElementById('passwordInput').value;
             if (inputVal === SECRET_CODE) {
@@ -229,4 +193,13 @@
                 document.getElementById('errorMsg').innerText = "That's not our code, love. Try again! 👀";
             }
         }
+
         function showTab(tabName) {
+            document.getElementById('musicTab').classList.add('hidden');
+            document.getElementById('photosTab').classList.add('hidden');
+            document.getElementById('messageTab').classList.add('hidden');
+            document.getElementById(tabName + 'Tab').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
